@@ -8,18 +8,11 @@ Rectangle {
 
     SplitView {
         anchors.fill: parent
-        // left
-        Rectangle {
-            Layout.minimumWidth: 60
+        ListLeft {
             width: 200
-
-            List {}
         }
-        // right
-        Rectangle {
+        ContentRight {
             Layout.fillWidth: true
-
-            Content {}
         }
     }
 }

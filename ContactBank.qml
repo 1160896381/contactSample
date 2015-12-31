@@ -1,41 +1,42 @@
-import QtQuick 2.0
+import QtQuick 2.1
 
 ListModel {
-    id: contactModel
+    id: contactBank
+
     ListElement {
         icon: "images/u117.png"
-        name: "所有"
-        type: "好友"
+        value: "所有"
+        group: "好友"
     }
     ListElement {
         icon: "images/u117.png"
-        name: "审片领导"
-        type: "好友"
+        value: "审片领导"
+        group: "好友"
     }
     ListElement {
         icon: "images/u117.png"
-        name: "技术大咖"
-        type: "好友"
+        value: "技术大咖"
+        group: "好友"
     }
     ListElement {
         icon: "images/u117.png"
-        name: "非诚勿扰"
-        type: "团队"
+        value: "非诚勿扰"
+        group: "团队"
     }
     ListElement {
         icon: "images/u117.png"
-        name: "蒙面歌王"
-        type: "团队"
+        value: "蒙面歌王"
+        group: "团队"
     }
     ListElement {
         icon: "images/u117.png"
-        name: "为她而战"
-        type: "团队"
+        value: "为她而战"
+        group: "团队"
     }
     ListElement {
         icon: "images/u117.png"
-        name: "节目部"
-        type: "台站"
+        value: "节目部"
+        group: "台站"
     }
 }
 
