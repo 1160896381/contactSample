@@ -1,19 +1,24 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.4
-import QtQuick.Layouts 1.2
+import QtQuick 2.1
+import QtQuick.Controls 1.1
+import QtQuick.Layouts 1.1
+import "./js/nsite.proxy.js" as NSite
 
-Rectangle {
+ApplicationWindow {
+    id: window
     width: 800
     height: 600
+    title: qsTr("联系人")
 
     SplitView {
         anchors.fill: parent
-        ListLeft {
+        Contact {
             width: 200
         }
-        ContentRight {
+        Dialog {
+            id: m_contentLoader
+            anchors.fill: parent
             Layout.fillWidth: true
         }
+
     }
 }
-
