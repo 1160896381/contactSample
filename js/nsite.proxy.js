@@ -15,3 +15,10 @@ var contact = [
                 { title: "广告部", pic: "./images/u117.png"},
             ] },
         ]
+
+var content = [
+            { name: "Jim Williams", portrait: "./images/u117.png" },
+            { name: "Jim Williams", portrait: "./images/u117.png" },
+            { name: "Jim Williams", portrait: "./images/u117.png" },
+            { name: "Jim Williams", portrait: "./images/u117.png" },
+        ]

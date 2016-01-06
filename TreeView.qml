@@ -25,7 +25,7 @@ ScrollView {
     property Component delegate: Label {
         id: label
         text: model.title ? model.title : 0
-        color: currentNode === model ? "white" : "black"
+        color: ((currentNode === model) && !(!!model.items)) ? "white" : "black"
     }
 
     //
@@ -73,7 +73,7 @@ ScrollView {
                                 x: view.mapToItem(rowfill, 0, 0).x
                                 width: view.width
                                 height: rowHeight
-                                visible: currentNode === model
+                                visible: (currentNode === model) && !(!!model.items)
                                 color: "#37f"
                             }
                             // 行点击响应区域
@@ -83,7 +83,9 @@ ScrollView {
                                     currentNode = model
                                     currentItem = loader
                                     forceActiveFocus()
-                                    selectedItemChanged(model);
+                                    if (!(!!model.items)) {
+                                        selectedItemChanged(model);
+                                    }
                                 }
                             }
                             // 行数据UI
@@ -102,7 +104,7 @@ ScrollView {
                                         fillMode: Image.PreserveAspectFit
                                         opacity: mouse.containsMouse ? 1 : 0.7
                                         anchors.centerIn: parent
-                                        rotation: loader.expanded ? 90 : 0
+                                        rotation: (!!model.items && loader.expanded) ? 90 : 0
                                         Behavior on rotation {NumberAnimation { duration: 120 }}
                                     }
                                     MouseArea {

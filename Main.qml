@@ -11,14 +11,14 @@ ApplicationWindow {
 
     SplitView {
         anchors.fill: parent
-        Contact {
+        ContactLeft {
+            id: m_contactLoader
             width: 200
         }
-        Dialog {
+        ContactRight {
             id: m_contentLoader
             anchors.fill: parent
             Layout.fillWidth: true
         }
-
     }
 }
