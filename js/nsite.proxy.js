@@ -17,8 +17,8 @@ var contact = [
         ]
 
 var content = [
-            { name: "Jim Williams", portrait: "./images/u117.png" },
-            { name: "Jim Williams", portrait: "./images/u117.png" },
-            { name: "Jim Williams", portrait: "./images/u117.png" },
-            { name: "Jim Williams", portrait: "./images/u117.png" },
+            { name: "Jim Williams1", portrait: "./images/u117.png" },
+            { name: "Jim Williams2", portrait: "./images/u117.png" },
+            { name: "Jim Williams3", portrait: "./images/u117.png" },
+            { name: "Jim Williams4", portrait: "./images/u117.png" },
         ]

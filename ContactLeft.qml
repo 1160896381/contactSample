@@ -5,6 +5,7 @@ import "./js/nsite.proxy.js" as NSite
 
 Item {
     id: _contact
+
     ListModel {
         id: modelTree
         Component.onCompleted: {
@@ -12,12 +13,29 @@ Item {
         }
     }
 
-    function showContent() {
-        var component = Qt.createComponent("Content.qml");
+    ListModel {
+        id: modelGrid
+        Component.onCompleted: {
+            modelGrid.append(NSite.content);
+        }
+    }
 
-        if (component.status === Component.Ready) {
-            var ContentQml = component.createObject(m_contentLoader,
-                                              {});
+    function showContent(item) {
+        var title = Qt.createComponent("ContentTitle.qml");
+        var content = Qt.createComponent("Content.qml");
+
+        if (content.status === Component.Ready) {
+            var ContentTitleQml = title.createObject(m_contentLoader,
+                                                     {
+                                                         text: item,
+                                                         x: (m_contentLoader.width - width)/2 + m_contactLoader.width
+                                                     });
+            var ContentQml = content.createObject(m_contentLoader,
+                                                  {
+                                                      x: m_contactLoader.width + 20,
+                                                      model: modelGrid
+                                                  });
+            ContentTitleQml.destroy(2000)
             ContentQml.xClicked.connect(doSomething);     // 实现两个qml组件之间的通信
         }
     }
@@ -31,9 +49,8 @@ Item {
         id: tree
         model: modelTree
         onSelectedItemChanged: {
-            showContent()
+            showContent(item)
         }
-
         rowHeight: 30
         expanderImage: "./images/trigle.png"
     }

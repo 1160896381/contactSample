@@ -84,7 +84,7 @@ ScrollView {
                                     currentItem = loader
                                     forceActiveFocus()
                                     if (!(!!model.items)) {
-                                        selectedItemChanged(model);
+                                        selectedItemChanged(model.title);
                                     }
                                 }
                             }
@@ -128,7 +128,7 @@ ScrollView {
                                 x: columnIndent
                                 height: expanded ? implicitHeight : 0
                                 property var node: model
-                                property bool expanded: false
+                                property bool expanded: true
                                 property var items: model.items
                                 property var text: model.title
                                 sourceComponent: (expanded && !!model.items) ? treeBranch : undefined
