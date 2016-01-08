@@ -50,6 +50,12 @@ Rectangle {
         focus: true
     }
 
+//    SearchBox {
+//         id: searchbox
+//         placeHolderText: "Search Text"
+//         onSearchTextChanged: {  }    // Get the current search text and do search operation.
+//    }
+
     TreeView {
         anchors.top: input.bottom
         anchors.bottom: parent.bottom

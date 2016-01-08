@@ -1,4 +1,6 @@
 import QtQuick 2.0
+import QtQuick.Controls 1.1
+import QtQuick.Controls.Styles 1.4
 
 Rectangle {
     id: root
@@ -20,36 +22,7 @@ Rectangle {
     //------------------------------
     // 属性备份一下，避免动画对属性进行变更
     Component.onCompleted: {
-        save();
-    }
-
-    //------------------------------
-    // 辅助方法
-    //------------------------------
-    function getRoot(item)
-    {
-        return (item.parent !== null) ? getRoot(item.parent) : item;
-    }
-
-    function save()
-    {
-        innerX = root.x;
-        innerY = root.y;
-        innerWidth = root.width;
-        innerHeight = root.height;
-        innerOpacity = root.opacity;
-    }
-
-    function reset()
-    {
-        root.x = innerX;
-        root.y = innerY;
-        root.width = innerWidth
-        root.height = innerHeight;
-        root.opacity = innerOpacity;
-        root.scale = 1;
-
-        root.visible = true;
+//        save();
     }
 
     //------------------------------
@@ -62,5 +35,29 @@ Rectangle {
              mouse.accepted = true
         }
         drag.target: root  // root可拖动
+    }
+
+    Button {
+        id: btnMsg
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+        width: 98
+        style: ButtonStyle {
+            label: Text {
+                x: 25
+                text:"发消息"
+                color: "#FFFFFF"
+            }
+            background: Rectangle {
+                implicitWidth: 100
+                implicitHeight: 25
+                radius: 4
+                color: "#5FB760"
+            }
+        }
+        onClicked: {
+            parent.visible = false;
+        }
     }
 }
