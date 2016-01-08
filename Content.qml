@@ -16,6 +16,7 @@ GridView {
         }
         Text {
             text: name;
+            color: "#999993"
             anchors.horizontalCenter: parent.horizontalCenter
         }
     }

@@ -20,23 +20,29 @@ Item {
         }
     }
 
+    property var contentTitleQml
+    property var contentQml
+    property Component title: Qt.createComponent("ContentTitle.qml")
+    property Component content: Qt.createComponent("Content.qml")
+
     function showContent(item) {
-        var title = Qt.createComponent("ContentTitle.qml");
-        var content = Qt.createComponent("Content.qml");
+        if (contentTitleQml)
+            contentTitleQml.destroy()
+        if (contentQml)
+            contentQml.destroy()
 
         if (content.status === Component.Ready) {
-            var ContentTitleQml = title.createObject(m_contentLoader,
+            contentTitleQml = title.createObject(m_contentLoader,
                                                      {
                                                          text: item,
                                                          x: (m_contentLoader.width - width)/2 + m_contactLoader.width
                                                      });
-            var ContentQml = content.createObject(m_contentLoader,
+            contentQml = content.createObject(m_contentLoader,
                                                   {
                                                       x: m_contactLoader.width + 20,
                                                       model: modelGrid
                                                   });
-            ContentTitleQml.destroy(2000)
-            ContentQml.xClicked.connect(doSomething);     // 实现两个qml组件之间的通信
+            contentQml.xClicked.connect(doSomething);     // 实现两个qml组件之间的通信
         }
     }
 

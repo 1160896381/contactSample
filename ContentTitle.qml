@@ -4,6 +4,7 @@ Text {
     id: _title
     width: 600
     height: 20
+    color: "#FFFFFF"
 
     MouseArea{
         anchors.fill: parent

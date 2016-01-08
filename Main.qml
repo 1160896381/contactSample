@@ -8,6 +8,7 @@ ApplicationWindow {
     width: 800
     height: 600
     title: qsTr("联系人")
+    color: "#424242"
 
     SplitView {
         anchors.fill: parent
