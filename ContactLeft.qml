@@ -3,9 +3,7 @@ import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.1
 import "./js/nsite.proxy.js" as NSite
 
-Item {
-    id: _contact
-
+Rectangle {
     ListModel {
         id: modelTree
         Component.onCompleted: {
@@ -22,8 +20,8 @@ Item {
 
     property var contentTitleQml
     property var contentQml
-    property Component title: Qt.createComponent("ContentTitle.qml")
-    property Component content: Qt.createComponent("Content.qml")
+    property Component title: Qt.createComponent("ChildrenRightTitle.qml")
+    property Component content: Qt.createComponent("ChildrenRightContent.qml")
 
     function showContent(item) {
         if (contentTitleQml)
@@ -33,25 +31,28 @@ Item {
 
         if (content.status === Component.Ready) {
             contentTitleQml = title.createObject(m_contentLoader,
-                                                     {
-                                                         text: item,
-                                                         x: (m_contentLoader.width - width)/2 + m_contactLoader.width
-                                                     });
+                                                 {
+                                                     text: item,
+                                                     x: (m_contentLoader.width - width)/2 + m_contactLoader.width
+                                                 });
             contentQml = content.createObject(m_contentLoader,
-                                                  {
-                                                      x: m_contactLoader.width + 20,
-                                                      model: modelGrid
-                                                  });
-            contentQml.xClicked.connect(doSomething);     // 实现两个qml组件之间的通信
+                                              {
+                                                  x: m_contactLoader.width + 20,
+                                                  model: modelGrid
+                                              });
         }
     }
 
-    function doSomething(msg) {
-        console.log(msg);
+    TextInput {
+        id: input
+        text: "输入查找的联系人"
+        width: 200; height: 20
+        focus: true
     }
 
     TreeView {
-        anchors.fill: parent
+        anchors.top: input.bottom
+        anchors.bottom: parent.bottom
         id: tree
         model: modelTree
         onSelectedItemChanged: {
