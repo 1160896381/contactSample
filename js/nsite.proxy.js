@@ -17,8 +17,11 @@ var contact = [
         ]
 
 var content = [
-            { name: "Jim Williams1", portrait: "./images/u117.png", department: "录制1部", title: "主任", tel: "626" },
-            { name: "Jim Williams2", portrait: "./images/u117.png", department: "录制2部", title: "主任", tel: "627" },
-            { name: "Jim Williams3", portrait: "./images/u117.png", department: "录制3部", title: "主任", tel: "628" },
-            { name: "Jim Williams4", portrait: "./images/u117.png", department: "录制4部", title: "主任", tel: "629" }
+            { name: "Jim Williams1", portrait: "./images/u117.png", department: "录制1部", title: "主任", tel: "621" },
+            { name: "Jim Williams2", portrait: "./images/u117.png", department: "录制2部", title: "主任", tel: "622" },
+            { name: "Jim Williams3", portrait: "./images/u117.png", department: "录制3部", title: "主任", tel: "623" },
+            { name: "Jim Williams4", portrait: "./images/u117.png", department: "录制4部", title: "主任", tel: "624" },
+            { name: "Jim Williams5", portrait: "./images/u117.png", department: "录制5部", title: "主任", tel: "625" },
+            { name: "Jim Williams6", portrait: "./images/u117.png", department: "录制6部", title: "主任", tel: "626" },
+            { name: "Jim Williams7", portrait: "./images/u117.png", department: "录制7部", title: "主任", tel: "627" }
         ]
