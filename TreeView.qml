@@ -6,6 +6,7 @@ ScrollView {
     frameVisible: true
     implicitWidth: 200
     implicitHeight: 160
+//    z: leftZ
 
     // 输入属性
     property var model
@@ -84,7 +85,7 @@ ScrollView {
                                     currentItem = loader
                                     forceActiveFocus()
                                     if (!(!!model.items)) {
-                                        selectedItemChanged(model.title);
+                                        selectedItemChanged(model);
                                     }
                                 }
                             }

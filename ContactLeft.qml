@@ -6,15 +6,9 @@ import "./js/nsite.proxy.js" as NSite
 Rectangle {
     ListModel {
         id: modelTree
+        // 组件加载完成，传入数据
         Component.onCompleted: {
             modelTree.append(NSite.contact);
-        }
-    }
-
-    ListModel {
-        id: modelGrid
-        Component.onCompleted: {
-            modelGrid.append(NSite.content);
         }
     }
 
@@ -32,13 +26,14 @@ Rectangle {
         if (content.status === Component.Ready) {
             contentTitleQml = title.createObject(m_contentLoader,
                                                  {
-                                                     text: item,
+                                                     text: item.title,
                                                      x: (m_contentLoader.width - width)/2 + m_contactLoader.width
                                                  });
+            // 选择相应条目，加载数据
             contentQml = content.createObject(m_contentLoader,
                                               {
                                                   x: m_contactLoader.width + 20,
-                                                  model: modelGrid
+                                                  model: item.content
                                               });
         }
     }
@@ -49,12 +44,6 @@ Rectangle {
         width: 200; height: 20
         focus: true
     }
-
-//    SearchBox {
-//         id: searchbox
-//         placeHolderText: "Search Text"
-//         onSearchTextChanged: {  }    // Get the current search text and do search operation.
-//    }
 
     TreeView {
         anchors.top: input.bottom
@@ -68,4 +57,3 @@ Rectangle {
         expanderImage: "./images/trigle.png"
     }
 }
-

@@ -7,7 +7,7 @@ Rectangle {
     width: 100
     height: 200
     color: '#D3D3D3'
-    z:100
+//    z: popZ
 
     // 私有属性
     property int innerX;

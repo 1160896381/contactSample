@@ -9,15 +9,20 @@ ApplicationWindow {
     height: 600
     title: qsTr("联系人")
     color: "#424242"
+    property int leftZ: 2
+    property int rightZ: 1
+
 
     SplitView {
         anchors.fill: parent
         ContactLeft {
             id: m_contactLoader
+            z: leftZ
             width: 200
         }
         ContactRight {
             id: m_contentLoader
+            z: rightZ
             anchors.fill: parent
             Layout.fillWidth: true
         }
